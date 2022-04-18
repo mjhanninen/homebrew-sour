@@ -1,8 +1,8 @@
 class NreplopsTool < Formula
   desc "Non-interactive nREPL client for shell scripts and command-line"
   homepage "https://github.com/mjhanninen/nreplops-tool"
-  url "https://github.com/mjhanninen/nreplops-tool/archive/refs/tags/v0.0.7.tar.gz"
-  sha256 "736b7fc8fce03eb12c482dc108c28c47013823920ca76f21e9240705532f6d01"
+  url "https://github.com/mjhanninen/nreplops-tool/archive/refs/tags/v0.0.8.tar.gz"
+  sha256 "e110272bb3753350db38bc3effcfc3ebf14fa4844d309b0b16ac85c7cce53e01"
   license "Apache-2.0"
 
   depends_on "pandoc" => :build
