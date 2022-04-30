@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+die() {
+  echo "Error:" "$@" >&2
+  exit 1
+}
+
+VERSION="$1"
+
+[[ -z "$(git status --porcelain)" ]] \
+  || die "Git repository is not in a clean state"
+
+URL="https://github.com/mjhanninen/nreplops-tool/archive/refs/tags/v${VERSION}.tar.gz"
+
+TEMP_DOWNLOAD="$(mktemp)"
+trap "rm -rf $TEMP_DOWNLOAD" EXIT
+
+curl -sL -o "$TEMP_DOWNLOAD" "$URL" \
+  || die "failed to download $URL"
+
+SHA256="$(sha256sum "$TEMP_DOWNLOAD" | cut -c1-64)"
+
+gsed -E -i \
+  -e 's|^( *url *) ".*"$|\1 "'"$URL"'"|' \
+  -e 's/^( *sha256 *) ".*"$/\1 "'"$SHA256"'"/' \
+  Formula/nreplops-tool.rb \
+  && git status --porcelain | grep -q '^ M Formula/nreplops-tool.rb$' \
+  || die "failed to update Formula/nreplops-tool.rb"
+
+# Commit and release tag
+git add Formula/nreplops-tool.rb
+git commit -m "nreplops-tool ${VERSION}"
+git show HEAD
