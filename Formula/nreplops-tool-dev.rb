@@ -5,8 +5,8 @@ class NreplopsToolDev < Formula
   conflicts_with "mjhanninen/sour/nreplops-tool",
     because: "nreplops-tools is the main version of this package"
   url "https://github.com/mjhanninen/nreplops-tool.git",
-    tag: "v0.3.1-rc.2",
-    revision: "5547d86721953e5c290a766459c6c41d0a23fa48"
+    tag: "v0.3.1-rc.3",
+    revision: "fb858a0592341dd3020e29a435060f63fca4eb8e"
 
   depends_on "pandoc" => :build
   depends_on "rust" => :build
