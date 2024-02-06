@@ -1,11 +1,11 @@
 class NreplopsTool < Formula
-  desc "Non-interactive nREPL client for shell scripts and command-line"
+  desc "Non-interactive nREPL client for scripts and command-line"
   homepage "https://github.com/mjhanninen/nreplops-tool"
+  url "https://github.com/mjhanninen/nreplops-tool/archive/refs/tags/v0.3.1.tar.gz"
   license "Apache-2.0"
   conflicts_with "mjhanninen/sour/nreplops-tool-dev",
-    because: "nreplops-tools-dev is the development version of this package"
-  url "https://github.com/mjhanninen/nreplops-tool/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "3849e5e6d1e42996178cdab34d97451df2ce729274097d90844c76bc915e79b4"
+                 because: "nreplops-tools-dev is the development version of this package"
+  sha256 "0bdda611a1bc60e487985648cf6df6b1417be3bb9ba69aca24aceaf39e8b124a"
 
   depends_on "pandoc" => :build
   depends_on "rust" => :build
