@@ -2,13 +2,13 @@ class NreplopsTool < Formula
   desc "Non-interactive nREPL client for scripts and command-line"
   homepage "https://github.com/mjhanninen/nreplops-tool"
   url "https://github.com/mjhanninen/nreplops-tool/archive/refs/tags/v0.3.1.tar.gz"
-  license "Apache-2.0"
-  conflicts_with "mjhanninen/sour/nreplops-tool-dev",
-                 because: "nreplops-tools-dev is the development version of this package"
   sha256 "0bdda611a1bc60e487985648cf6df6b1417be3bb9ba69aca24aceaf39e8b124a"
+  license "Apache-2.0"
 
   depends_on "pandoc" => :build
   depends_on "rust" => :build
+  conflicts_with "mjhanninen/sour/nreplops-tool-dev",
+                 because: "nreplops-tools-dev is the development version of this package"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "nr")

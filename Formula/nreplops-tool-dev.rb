@@ -5,11 +5,12 @@ class NreplopsToolDev < Formula
       tag:      "v0.3.1",
       revision: "392121c8a5c71fee85a79c59e43838beca5b60e4"
   license "Apache-2.0"
-  conflicts_with "mjhanninen/sour/nreplops-tool",
-                 because: "nreplops-tools is the main version of this package"
 
   depends_on "pandoc" => :build
   depends_on "rust" => :build
+
+  conflicts_with "mjhanninen/sour/nreplops-tool",
+                 because: "nreplops-tools is the main version of this package"
 
   def install
     system "cargo", "install", *std_cargo_args(path: "nr")
